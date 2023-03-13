@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color:lightgray;
+    background-color:rgb(132, 184, 219);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -13,7 +13,7 @@ body{
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 header {
-    background-color:gray;
+    background: linear-gradient(to right,#01e1ff, #0400ff,#ae00ff);
     background-repeat: no-repeat;
     z-index: 3;
     display: flex;
@@ -41,6 +41,7 @@ header {
 .parent{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     margin-top: 100px;
     height: 80vh;
@@ -77,7 +78,8 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: grey;
+    color: #fff;
+    background: linear-gradient(to right,#01e1ff, #0400ff,#ae00ff);;
     border-radius: 5%;
     margin: 20px;
     padding:10px;
@@ -91,7 +93,7 @@ header {
 }
 
 .DescriptifCartes {
-    background: rgba(253, 253, 253, 0.534);
+    background: rgba(253, 253, 253, 0.342);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,16 +105,60 @@ header {
 }
 
 .TextDescriptifCartes{
-    height: 50px;
-    width: 300px;
+    color:#fff;
+    height: 100px;
+    width: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.Image.Japon1{
+    display :flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+}
+
+.Image.MapJapon{
+    display :flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+}
+
+.Image.Japon2{
+    display :flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+}
+
+.Image.Tokyo{
+    display :flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 300px;
+}
+
+.Image.Japon{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 footer{
-    background-color:grey;
+    background: linear-gradient(to right,#01e1ff, #0400ff,#ae00ff);
     background-repeat: no-repeat;
     z-index:2;
     display: flex;
