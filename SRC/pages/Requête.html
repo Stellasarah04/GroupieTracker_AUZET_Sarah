@@ -20,22 +20,20 @@
     </header>
     
     <div class="parent">
-        <p>Quel pays rechercher vous ?</p>
-        <input type="text">
-        <a href="./individuel.html">Individuel</a>
-
         <form action="GET">
-
+            <p class="TextRequête">Quel pays rechercher vous ?</p>
+            <input class="EntrePays" type="text">
         </form>
+
         <div class="ParentCartes">
             <a href="./individuel.html" target="_blank">
             <div Class="Cartes">
-                <h1> Japon </h1>
+                <h1> <ul></ul> </h1>
                 <div class="ImageCartes">
-                    <img src="https://flagcdn.com/w320/jp.png" alt="Photo">
+                    <img src="../go/{{DrapeauPays}}" alt="Drapeau du pays">
                 </div>
                 <div class="DescriptifCartes">
-                    <p class="TextDescriptifCartes"> Capital : {{Capital}}<br>Langue : {{Langue}}<br> Monnaie : {{Monnaie}}<br>Région: {{Région}}<br>Sous Région : {{SousRegion}}</p>
+                    <p class="TextDescriptifCartes"> Capital : <br>Langue : <br> Monnaie : <br>Région: <br>Sous Région : </p>
                 </div>
             </div>
             </a>
@@ -47,5 +45,120 @@
             <p class="TextFooter">Copyright 2023</p>
         </div>
     </footer>
+
+        <script>
+        fetch('https://restcountries.com/v3.1/name/{name}')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+        </script>
+        <script>
+            fetch('https://restcountries.com/v3.1/name/{name}?fullText=true')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+        </script>
+        <script>
+
+            fetch('https://restcountries.com/v3.1/currency/{currency}')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+        </script>
+        <script>
+            fetch('https://restcountries.com/v3.1/lang/{currency}')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+        </script>
+        <script>
+            fetch('https://restcountries.com/v3.1/capital/{capital}')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+        </script>
+        <script>
+            fetch('https://restcountries.com/v3.1/region/{region}')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+        </script>
+        <script>
+            fetch('https://restcountries.com/v3.1/subregion/{subregion}')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+        </script>
+        <script>
+            fetch('https://restcountries.com/v3.1/translation/{translation}')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+        </script>
 </body>
 </html>

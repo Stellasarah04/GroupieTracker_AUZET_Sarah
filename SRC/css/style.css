@@ -112,47 +112,16 @@ header {
     text-overflow: ellipsis;
 }
 
-.Image.Japon1{
-    display :flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 300px;
+.TextRequête{
+    font-size: 30px;
+    color:white;
+    margin:20px;
 }
 
-.Image.MapJapon{
-    display :flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 300px;
-}
-
-.Image.Japon2{
-    display :flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 300px;
-}
-
-.Image.Tokyo{
-    display :flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 300px;
-}
-
-.Image.Japon{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.EntrePays{
+    width: 390px;
+    height: 30px;
+    border: 1px solid #fff;
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

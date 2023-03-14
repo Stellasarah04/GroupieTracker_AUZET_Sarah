@@ -22,24 +22,18 @@
 
     <div class="parent">
         <div class="ParentCartes">
-            <div class="Image Japon">
-                <img class="Image Japon1" src="../asset/img/Japon1.jpg" alt="Japon">
-                <img class="Image MapJapon" src="../asset/img/JaponMap.png" alt="Map du Japon">
-            </div>
-        <div Class="Cartes">
-            <h1> Japon </h1>
-            <div class="ImageCartes">
-                <img src="https://flagcdn.com/w320/jp.png" alt="Photo">
-            </div>
-            <div class="DescriptifCartes">
-                <p class="TextDescriptifCartes"> Capital : Tokyo<br>Langue : Japonais<br> Monnaie : ¥ (Yen)<br>Région: Asie<br>Sous Région : Asie de l'Est</p>
-            </div>
+            <a href="./individuel.html" target="_blank">
+                <div Class="Cartes">
+                    <h1> {{NomPays}} </h1>
+                    <div class="ImageCartes">
+                        <img src="../go/{{DrapeauPays}}" alt="Drapeau du pays">
+                    </div>
+                    <div class="DescriptifCartes">
+                        <p class="TextDescriptifCartes"> Capital : {{Capital}}<br>Langue : {{Langue}}<br> Monnaie : {{Monnaie}}<br>Région: {{Région}}<br>Sous Région : {{SousRegion}}</p>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="Image Japon">
-            <img class="Image Japon2" src="../asset/img/Japon2.webp" alt="Japon">
-            <img class="Image Tokyo" src="../asset/img/Tokyo1.jpg" alt="Tokyo">
-        </div>
-        </div>    
     </div>
 
     <footer>
@@ -48,5 +42,111 @@
             <p class="TextFooter">Copyright 2023</p>
         </div>
     </footer>
+
+    <script>
+        fetch('https://restcountries.com/v3.1/name/eesti')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+            fetch('https://restcountries.com/v3.1/name/aruba?fullText=true')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+            fetch('https://restcountries.com/v3.1/currency/cop')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+            fetch('https://restcountries.com/v3.1/lang/spanish')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+            fetch('https://restcountries.com/v3.1/capital/tallinn')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+            fetch('https://restcountries.com/v3.1/region/europe')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+            fetch('https://restcountries.com/v3.1/subregion/Northern%20Europe')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+
+            fetch('https://restcountries.com/v3.1/translation/germany')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.forEach(pays => {
+                    const markup = `<li>${pays.name}</li>`;
+
+                    document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
+                });
+            })
+            .catch(error => console.log(error));
+    </script>
 </body>
 </html>
