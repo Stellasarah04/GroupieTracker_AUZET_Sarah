@@ -3,6 +3,7 @@ package model
 import (
 	"log"
 	"time"
+	"https://github.com/Stellasarah04/GroupieTracker_AUZET_Sarah/tree/main/SRC/go/config"
 )
 
 type Pays []struct {
@@ -4322,25 +4323,25 @@ type Pays []struct {
 
 type Pays []Pays
 
-func NewCar(c *Pays) {
+func NewPays(c *Pays) {
 	if c == nil {
 		log.Fatal(c)
 	}
 	c.CreatedAt = time.Now()
 	c.UpdatedAt = time.Now()
 
-	err := config.Db().QueryRow("INSERT INTO pays (Nom, Langue, Capital, Région, sous-région, monnaie) VALUES ($1,$2,$3,$4,$5,$6) RETURNING id;", c.Manufacturer, c.Design, c.Style, c.Doors, c.CreatedAt, c.UpdatedAt).Scan(&c.Id)
+	err := config.Db().QueryRow("INSERT INTO pays (Nom, Langue, Capital, Région, sous-région, monnaie) VALUES ($1,$2,$3,$4,$5,$6) RETURNING id;", c.Names, c.Capital, c.Monnaie, c.Languages, c.Région, c.SousRégion).Scan(&c.Id)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-func FindCarById(id int) *Pays {
+func FindPaysById(id int) *Pays {
 	var pays Pays
 
-	row := config.Db().QueryRow("SELECT * FROM cars WHERE id = $1;", id)
-	err := row.Scan(&pays.Id, &pays.Manufacturer, &pays.Design, &pays.Style, &pays.Doors, &pays.CreatedAt, &pays.UpdatedAt)
+	row := config.Db().QueryRow("SELECT * FROM pays WHERE id = $1;", id)
+	err := row.Scan(&pays.Id, &pays.Names, &pays.Capital, &pays.Monnaie, &pays.Languages, &pays.Région, &pays.SousRégion)
 
 	if err != nil {
 		log.Fatal(err)
@@ -4349,10 +4350,10 @@ func FindCarById(id int) *Pays {
 	return &pays
 }
 
-func AllCars() *Pays {
+func AllPays() *Pays {
 	var pays Pays
 
-	rows, err := config.Db().Query("SELECT * FROM cars")
+	rows, err := config.Db().Query("SELECT * FROM pays")
 
 	if err != nil {
 		log.Fatal(err)
@@ -4364,7 +4365,7 @@ func AllCars() *Pays {
 	for rows.Next() {
 		var c Pays
 
-		err := rows.Scan(&c.Id, &c.Manufacturer, &c.Design, &c.Style, &c.Doors, &c.CreatedAt, &c.UpdatedAt)
+		err := rows.Scan(&c.Id, &c.Names, &c.Capital, &c.Monnaie, &c.Languages, &c.Région, &c.SousRégion)
 
 		if err != nil {
 			log.Fatal(err)
@@ -4376,29 +4377,28 @@ func AllCars() *Pays {
 	return &pays
 }
 
-func UpdateCar(pays *Pays) {
+func UpdatePays(pays *Pays) {
 	pays.UpdatedAt = time.Now()
 
-	stmt, err := config.Db().Prepare("UPDATE cars SET manufacturer=$1, design=$2, style=$3, doors=$4, updated_at=$5 WHERE id=$6;")
+	stmt, err := config.Db().Prepare("UPDATE pays SET Names=$1, Capital=$2, Monnaie=$3, Languages=$4, updated_at=$5 WHERE id=$6;")
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	_, err = stmt.Exec(pays.Manufacturer, pays.Design, pays.Style, pays.Doors, pays.UpdatedAt, pays.id)
+	_, err = stmt.Exec(pays.Names, pays.Capital, pays.Monnaie, pays.Languages, pays.Région, pays.SousRégion, pays.id)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 }
 
-func DeleteCarById(id int) error {
-	stmt, err := config.Db().Prepare("DELETE FROM cars WHERE id=$1;")
+func DeletePaysById(id int) error {
+	stmt, err := config.Db().Prepare("DELETE FROM pays WHERE id=$1;")
 
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	_, err = stmt.Exec(id)
 
 	return err

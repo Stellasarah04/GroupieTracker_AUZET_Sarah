@@ -6,16 +6,18 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"github.com/gorilla/mux"
+	"https://github.com/Stellasarah04/GroupieTracker_AUZET_Sarah/tree/main/SRC/go/models"
 )
 
-func CarsIndex(w http.ResponseWriter, r *http.Request) {
+func PaysIndex(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "application/json;charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 
 	json.NewEncoder(w).Encode(models.AllPays())
 }
 
-func CarsCreate(w http.ResponseWriter, r *http.Request) {
+func PaysCreate(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-type", "application/json;charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 
@@ -33,7 +35,7 @@ func CarsCreate(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	models.NewCar(&pays)
+	models.NewPays(&pays)
 
 	json.NewEncoder(w).Encode(pays)
 }
@@ -49,9 +51,9 @@ func PaysShow(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	car := models.FindPaysById(id)
+	pays := models.FindPaysById(id)
 
-	json.NewEncoder(w).Encode(car)
+	json.NewEncoder(w).Encode(pays)
 }
 
 func PaysUpdate(w http.ResponseWriter, r *http.Request) {
@@ -71,11 +73,11 @@ func PaysUpdate(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	car := models.FindCarById(id)
+	pays := models.FindPaysById(id)
 
 	err = json.Unmarshal(body, &pays)
 
-	models.UpdateCar(car)
+	models.UpdatePays(pays)
 
 	json.NewEncoder(w).Encode(pays)
 }

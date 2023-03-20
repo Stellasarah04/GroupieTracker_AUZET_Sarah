@@ -4,8 +4,8 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/synbioz/go_api/config"
-	"github.com/synbioz/go_api/models"
+	"https://github.com/Stellasarah04/GroupieTracker_AUZET_Sarah/tree/main/SRC/go/config"
+	"https://github.com/Stellasarah04/GroupieTracker_AUZET_Sarah/tree/main/SRC/go/models"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
 	router := InitializeRouter()
 
 	// Populate database
-	models.NewCar(&models.Pays{Manufacturer: "citroen", Design: "ds3", Style: "sport", Doors: 4})
+	models.NewPays(&models.Pays{Name: "Japon", Capital: "Tokyo", Monnaie: "Yen", Languages: "Japonais"})
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
