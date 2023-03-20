@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gorilla/mux"
-	"https://github.com/Stellasarah04/GroupieTracker_AUZET_Sarah/tree/main/SRC/go/controlleurs"
+	"https://github.com/Stellasarah04/GroupieTracker_AUZET_Sarah/tree/main/SRC/go/controler"
 )
 
 func InitializeRouter() *mux.Router {
