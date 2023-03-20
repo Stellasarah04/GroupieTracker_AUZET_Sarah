@@ -12,10 +12,13 @@
     <header>
         <nav>
             <img class="Logo" src="../asset/img/Logo.png" alt="Logo">
-
-            <a class="TextMenu" href="../index.html">Accueil</a>
-            <a class="TextMenu" href="./Requête.html">Requête</a>
-            <a class="TextMenu" href="./individuel.html" target="_blank">Individuel</a>
+            <label for="toggle">☰</label>
+            <input type="checkbox" id="toggle">
+            <div class="Menu">
+                <a class="TextMenu" href="../index.html">Accueil</a>
+                <a class="TextMenu" href="../pages/Requête.html">Requête</a>
+                <a class="TextMenu" href="../pages/individuel.html" target="_blank">Individuel</a>
+            </div>
         </nav>
     </header>
     
@@ -33,8 +36,7 @@
                     <img src="../go/{{DrapeauPays}}" alt="Drapeau du pays">
                 </div>
                 <div class="DescriptifCartes">
-                    <p class="TextDescriptifCartes"> Capital : <br>Langue : <br> Monnaie : <br>Région: <br>Sous Région : </p>
-                </div>
+                    <p class="TextDescriptifCartes"> Capital : {{Capital}}<br>Langue : {{Langue}}<br> Monnaie : {{Monnaie}}<br>Région: {{Région}}<br>Sous Région : {{SousRegion}}</p>                </div>
             </div>
             </a>
         </div>

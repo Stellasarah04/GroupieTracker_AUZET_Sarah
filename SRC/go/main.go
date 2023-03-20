@@ -1,34 +1,19 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
-	"text/template"
+
+	"github.com/synbioz/go_api/config"
+	"github.com/synbioz/go_api/models"
 )
 
-const port = ":8080"
-
-func Requete(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "Requete")
-}
-
-func Individuel(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, "Individuel")
-}
-
-func renderTemplate(w http.ResponseWriter, tmpl string) {
-	t, err := template.ParseFiles("./Templates/" + tmpl + ".page.tmpl")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-	t.Execute(w, nil)
-}
-
 func main() {
-	http.HandleFunc("/", Requete)
-	http.HandleFunc("/Individuel", Individuel)
+	config.DatabaseInit()
+	router := InitializeRouter()
 
-	fmt.Println("http://localhost:8080) - Server started on port", port)
-	http.ListenAndServe(port, nil)
+	// Populate database
+	models.NewCar(&models.Pays{Manufacturer: "citroen", Design: "ds3", Style: "sport", Doors: 4})
+
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
